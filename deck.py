@@ -1,4 +1,5 @@
 from card import Card
+from random import shuffle
 class Deck :
     def __init__(self):    
         suits = ['Hearts','Diamonds','Clubs','Spades']
@@ -16,14 +17,19 @@ class Deck :
         cards = self.cards[-actual:]
         self.cards = self.cards[:-actual]
         return cards
+    def deal_card(self):
+        return self._deal(1)[0] ## _deal(1) returns a list containing a single card so in order to get the card object we target the [0]th element in the list 
+    def deal_hand(self,hand_size):
+        return self._deal(hand_size)
+    def shuffle(self):
+        if self.count() < 52:
+            raise ValueError("Only full decks can be shuffled")
+        shuffle(self.cards)
+        return self #would be good practice here 
     
+
     
 
 
 
-deck = Deck()
-print(deck.count())
-print(deck)
-print(deck._deal(53))
-print(deck)
 
