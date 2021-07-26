@@ -1,5 +1,4 @@
 from card import Card
-
 class Deck :
     def __init__(self):    
         suits = ['Hearts','Diamonds','Clubs','Spades']
@@ -7,14 +6,24 @@ class Deck :
         self.cards = [ Card(value,suit) for suit in suits for value in values]
     def __repr__(self):
         return f'Deck of {self.count()} cards'
-
     def count(self):
         return len(self.cards)
+    def _deal(self,num):
+        count = self.count()
+        actual = min([count,num]) 
+        if count == 0:
+            raise ValueError ("All cards have been dealt")
+        cards = self.cards[-actual:]
+        self.cards = self.cards[:-actual]
+        return cards
+    
+    
 
 
 
 deck = Deck()
 print(deck.count())
 print(deck)
-
+print(deck._deal(53))
+print(deck)
 
