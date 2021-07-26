@@ -1,4 +1,4 @@
 from card import Card
 
-draw = Card (1,1)
+draw = Card ('3',"Hearts")
 print(draw)

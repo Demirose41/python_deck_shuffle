@@ -1,9 +1,7 @@
 class Card :
-    suits = ['Hearts','Diamonds','Clubs','Spades']
-    values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
-    def __init__ (self,suit,value):
-        self.suit = self.suits[suit]
-        self.value = self.values[value]
+    def __init__ (self,value,suit):
+        self.suit = suit
+        self.value = value
     def __repr__ (self):
         return f'{self.value} of {self.suit}'
 
