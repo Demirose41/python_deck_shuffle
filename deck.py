@@ -7,6 +7,9 @@ class Deck :
         self.cards = [ Card(value,suit) for suit in suits for value in values]
     def __repr__(self):
         return f'Deck of {self.count()} cards'
+    def __iter__(self):
+        return iter(self.card)
+
     def count(self):
         return len(self.cards)
     def _deal(self,num):
